@@ -71,9 +71,9 @@ public class WorkflowTest {
 	 *      ... code to reach signup form ...
 	 *      PhotonSession.checkpoint("51_43_4174_21493_signup_form");
 	 *      ... code to add signup details ...
-	 *	    PhotonSession.checkpoint("51_43_4174_21494_signup_details");
+	 *      PhotonSession.checkpoint("51_43_4174_21494_signup_details");
 	 *      ... code to verify successful signup ...
-	 *	    PhotonSession.checkpoint("51_43_4174_21495_signup_successful");
+	 *      PhotonSession.checkpoint("51_43_4174_21495_signup_successful");
 	 *  }
 	 *  
 	 *  Have fun writing the tests!

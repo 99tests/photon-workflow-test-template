@@ -1,4 +1,4 @@
-# Photon Test Framework
+# Photon Workflow Test Project
 
 ## Project Setup 
 
