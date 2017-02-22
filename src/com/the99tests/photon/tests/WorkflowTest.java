@@ -7,6 +7,7 @@
 package com.the99tests.photon.tests;
 
 import java.io.IOException;
+
 import java.util.concurrent.TimeoutException;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -48,7 +49,7 @@ public class WorkflowTest {
 	/*
 	 * Write your tests here
 	 * 
-	 * Instructions
+	 * INSTRUCTIONS
 	 * 
 	 * Your tests will be able to access the webdriver via the 'driver' variable
 	 * 
@@ -63,7 +64,7 @@ public class WorkflowTest {
 	 * 
 	 * Please ensure that checkpoints are created only on successful execution of the test case step
 	 * 
-	 * Example:
+	 * TEST EXAMPLE
 	 * 
 	 *  @Test
 	 *  public void testSignup() throws Exception {	
@@ -76,9 +77,23 @@ public class WorkflowTest {
 	 *      PhotonSession.checkpoint("51_43_4174_21495_signup_successful");
 	 *  }
 	 *  
+	 *  RUNNING TESTS LOCALLY
+	 *  
+	 *  You can run your tests locally to verify that they work well. 
+	 *  The test will create screenshots of each checkpoint in the project root folder
+	 *  
+	 *  SUBMITTING TESTS TO THE 99 TESTS PLATFORM
+	 *  
+	 *  Once you're done writing and testing your project locally, 
+	 *  run the maven 'package' goal. This will create an uploadable zip file at
+	 *  
+	 *  target/WorkflowTest-0.0.1-SNAPSHOT-photon-package.zip
+	 *  
+	 *  Upload this zip file to the plaforms
+	 *  
 	 *  Have fun writing the tests!
 	 *  
-	 *  Arrange, Act Assert \m/
+	 *  Please reach out to support@99tests.com for any queries or clarifications.
 	 * 
 	 */
 	
