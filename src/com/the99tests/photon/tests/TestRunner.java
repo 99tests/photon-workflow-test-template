@@ -21,6 +21,7 @@ import org.testng.TestListenerAdapter;
 import org.testng.TestNG;
 import org.testng.collections.Lists;
 import org.testng.reporters.ExitCodeListener;
+import org.testng.reporters.VerboseReporter;
 
 
 
@@ -28,6 +29,7 @@ public class TestRunner {
 	public static void main(String[] args) throws IOException {
 		TestNG testng = new TestNG();
 		testng.setUseDefaultListeners(false);
+		testng.addListener(new VerboseReporter());
 		testng.addListener(new ExitCodeListener());
 		List<String> suites = Lists.newArrayList();
 		suites.add("testng.xml");//path to xml..

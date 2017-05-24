@@ -24,18 +24,23 @@ public class WorkflowTest {
 	/*
 	 * Test setup
 	 */
+	
 	static RemoteWebDriver driver=null;
 
 	@BeforeSuite
-	public void init() throws IOException, TimeoutException, UnsupportedConfigException {
+	public void init() throws IOException, TimeoutException, UnsupportedConfigException, InterruptedException {
 		if(PhotonSession.isLocal()) {
 			/*
-			 * TODO: Change your driver based on your environment and browser 
+			 * TODO: Local/Test playground setup as per your needs(Please refer to the README for more info)
+			 * 
+			 * For local, it should be something like
+			 * 
+			 * driver=ChromeDriver()
+			 * PhotonSession.setupLocalSession(driver);
 			 */
-			driver=new FirefoxDriver();
-			PhotonSession.setupLocalSession(driver);
 		} else {
-			driver=PhotonSession.setupPhotonSession();
+			PhotonSession.setupPhotonSession();
+			driver=PhotonSession.getNativeDriver();
 		}	
 	}
 	
@@ -45,68 +50,12 @@ public class WorkflowTest {
 		driver.quit();
 	} 
 	
-	/* TODO: Write tests */
-	/*
-	 * Write your tests here
-	 * 
-	 * INSTRUCTIONS
-	 * 
-	 * Your tests will be able to access the webdriver via the 'driver' variable
-	 * 
-	 * The photon session can be accessed via 'PhotonSession'
-	 * 
-	 * Against each test case step you will have a list of checkpoints defined,
-	 * it will look as follows - 51_43_4174_21493_login
-	 * 
-	 * Your test code should create checkpoints if the test case step executes successfully
-	 * 
-	 * To create a checkpoint, use the 'checkpoint' function of PhotonSession
-	 * 
-	 * Please ensure that checkpoints are created only on successful execution of the test case step
-	 * 
-	 * TEST EXAMPLE
-	 * 
-	 *  @Test
-	 *  public void testSignup() throws Exception {	
-	 *      driver.get("http://example.com")
-	 *      ... code to reach signup form ...
-	 *      PhotonSession.checkpoint("51_43_4174_21493_signup_form");
-	 *      ... code to add signup details ...
-	 *      PhotonSession.checkpoint("51_43_4174_21494_signup_details");
-	 *      ... code to verify successful signup ...
-	 *      PhotonSession.checkpoint("51_43_4174_21495_signup_successful");
-	 *  }
-	 *  
-	 *  RUNNING TESTS LOCALLY
-	 *  
-	 *  You can run your tests locally to verify that they work well. 
-	 *  The test will create screenshots of each checkpoint in the project root folder
-	 *  
-	 *  SUBMITTING TESTS TO THE 99 TESTS PLATFORM
-	 *  
-	 *  Once you're done writing and testing your project locally, 
-	 *  run the maven 'package' goal. This will create an uploadable zip file at
-	 *  
-	 *  target/WorkflowTest-0.0.1-SNAPSHOT-photon-package.zip
-	 *  
-	 *  Upload this zip file to the plaforms
-	 *  
-	 *  Have fun writing the tests!
-	 *  
-	 *  Please reach out to support@99tests.com for any queries or clarifications.
-	 * 
+	/* 
+	 * TODO: Write your tests below
 	 */
 	
 }
 
-/* TODO: Submit your tests
- * 
- * To submit your test, execute the following goal
- * 
- *     mvn package
- * 
- * Then upload the following package to 99 Tests
- * 
- *     target/WorkflowTest-0.0.1-SNAPSHOT-photon-package.zip
- * 
+/* 
+ * TODO: Submit your tests
  */
