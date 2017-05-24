@@ -47,6 +47,8 @@ Here's an example of what a signup test may look like when you're done.
 	     ... code to verify successful signup ...
 	     PhotonSession.checkpoint("51_43_4174_21495_signup_successful");
 	 }
+
+When you run your tests, each checkpoint will generate a screenshot in your project folder.
 	 
 ## Verify test execution on the 99tests Test Playground
  
@@ -109,7 +111,7 @@ The `PhotonSession` library is open source.
 
 The reason is simple, we want testers to help each other and grow with us.
 
-If you have written a function that can be used by other testers and make life easy for them, please add the function to the [PhotonSession`library](https://github.com/99tests/photon-session) and send us a pull request.
+If you have written a function that can be used by other testers and make life easy for them, please add the function to the [PhotonSession library](https://github.com/99tests/photon-session) and send us a pull request.
 
 
 
