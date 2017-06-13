@@ -18,44 +18,41 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.the99tests.photon.PhotonSession;
+import com.the99tests.photon.PhotonSession.PhotonSuite.PhotonTestEnvironment;
 import com.the99tests.photon.platforms.UnsupportedConfigException;
 
-public class WorkflowTest {
-	/*
-	 * Test setup
-	 */
-	
-	static RemoteWebDriver driver=null;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 
-	@BeforeSuite
-	public void init() throws IOException, TimeoutException, UnsupportedConfigException, InterruptedException {
-		if(PhotonSession.isLocal()) {
-			/*
-			 * TODO: Local/Test playground setup as per your needs(Please refer to the README for more info)
-			 * 
-			 * For local, it should be something like
-			 * 
-			 * driver=ChromeDriver()
-			 * PhotonSession.setupLocalSession(driver);
-			 */
-		} else {
-			PhotonSession.setupPhotonSession();
-			driver=PhotonSession.getNativeDriver();
-		}	
+public class WorkflowTest extends PhotonSession.PhotonSuite<RemoteWebDriver> {
+	/*
+	 * Configuration block - please edit carefully
+	 * 
+	 * Do not change the structure of the code or functions in this block
+	 */
+	@Override
+	protected RemoteWebDriver setupLocalWebDriver() throws Exception {
+		// TODO local driver setup
+		return null;
 	}
-	
-	@AfterSuite
-	public void close() {
-		PhotonSession.closeSession();
-		driver.quit();
+
+	@Override
+	protected RemoteWebDriver setupPlaygroundWebDriver() throws Exception {
+		// TODO test playground setup
+		// more info at https://hackmd.io/GwUwTOAMCMYLQEMQIMZwCwM3ARgdgFY84Z1ZJ1IBmAEwDMCg
+		return null;
 	} 
 	
-	/* 
-	 * TODO: Write your tests below
-	 */
+	@Override
+	protected PhotonTestEnvironment getEnvironment() {
+		// TODO change this to PhotonTestEnvironment.PLAYGROUND 
+		// to test on the 99tests test playground
+		return PhotonTestEnvironment.LOCAL;
+	}
 	
+	/*
+	 * Tests block - please write your tests below
+	 */
 }
 
-/* 
- * TODO: Submit your tests
- */

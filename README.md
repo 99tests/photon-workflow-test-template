@@ -1,29 +1,61 @@
-# Photon Workflow Test Project
+# Photon Test Framework Project Template
 
-This project template comes pre-configured to run tests on the 99tests platform.
+## Overview
 
-Please follow instructions below to write, test and submit your project.
+The Photon Test Framework is a set of Java libraries built on top of Selenium/Appium to make it easy to run tests on the 99tests platform.
 
-## Rename the project
+This project template will help you write and submit your tests in 5 easy steps.
+
+1. Setup your project using this template
+2. Configure the project for your platform
+3. Write tests that generate checkpoints
+4. Watch and Verify test execution on the 99tests test playground
+5. Submit your project to 99tests
+
+## Step 1: Setup your project
+
+### Get a copy of this template
+
+Download(don't clone) this repository into your local machine.
+
+We suggest creating a separate workspace for your 99tests related activities, and placing your template there.
+
+### Rename the project
 
 - Go to the `pom.xml` file and change the Artifact Id based on the product and workflow you are automating.
-- Choose the `WorkflowTest` folder, right-click -> Refactor -> Rename. Rename it to the same name you used for the Artifact Id above.
+- Select the project folder, right-click -> Refactor -> Rename. Rename it to the same name you used for the Artifact Id above.
 
-## Setup driver for local execution
+## Step 2: Configure your project
 
-Open the `com.the99tests.photon.tests.WorkflowTest` class in this project, and find the first TODO comment titled `Local/Test playground setup`
+### Customize the project for your platform
 
-Setup your driver as per your needs.
+This project is configured for web browsers.
 
-Set the `driver` variable to your driver(this variable will be accessible in all your tests)
+To target mobile devices/browsers, ensure that the class `WorkflowTest` extends the appropriate `PhotonSession.PhotonSuite` for your platform.
 
-Register the driver with
+E.g. for android, this could be
 
-    PhotonSession.setupLocalSession(driver)
+    PhotonSession.PhotonSuite<AndroidDriver<MobileElement>>
+
+### Setup driver for local execution
+
+Open the `com.the99tests.photon.tests.WorkflowTest` class in this project
+
+Customize the `setupLocalWebDriver` method to setup and return a valid local web driver setup.
+
+Note that this method should initialize a local variable and return it.
+
+## Step 3: Write Tests that generate checkpoints
+
+### Driver and session access
+
+The web driver can be accessed in your tests via the `driver` variable.
+
+The test session functionality for generating checkpoints can be accessed via the `session` variable.
      
-## Write tests
+### Writing tests and generating checkpoints
 
-Find the second TODO in `WorklowTest.java` titled `Write your tests here`
+Write your code in the `Tests` block in `WorkflowTest`
 
 Visit the workflow tab on the 99tests platform for reference.
 
@@ -33,7 +65,7 @@ Write code for each test case step.
 
 Against each test case step, you will find a checkpoint(something like `51_43_4174_21493_login`)
 
-At the point where the test case step would normally succeed, register the checkpoint with `PhotonSession.checkpoint`, passing the checkpoint name as the parameter.
+At the point where the test case step would normally succeed, register the checkpoint with `session.checkpoint`, passing the checkpoint name as the parameter.
 
 Here's an example of what a signup test may look like when you're done.
 
@@ -41,65 +73,75 @@ Here's an example of what a signup test may look like when you're done.
 	 public void testSignup() throws Exception {	
 	     driver.get("http://example.com")
 	     ... code to reach signup form ...
-	     PhotonSession.checkpoint("51_43_4174_21493_signup_form");
+	     session.checkpoint("51_43_4174_21493_signup_form");
 	     ... code to add signup details ...
-	     PhotonSession.checkpoint("51_43_4174_21494_signup_details");
+	     session.checkpoint("51_43_4174_21494_signup_details");
 	     ... code to verify successful signup ...
-	     PhotonSession.checkpoint("51_43_4174_21495_signup_successful");
+	     session.checkpoint("51_43_4174_21495_signup_successful");
 	 }
+	 
+### Running and debugging your tests
+
+To run your tests, execute the `exec:java` Maven goal.
+
+There are simple ways to run and debug a maven project in both [Eclipse](https://books.sonatype.com/m2eclipse-book/reference/running-sect-running-maven-builds.html) and [IntelliJ](https://www.jetbrains.com/help/idea/2017.1/executing-maven-goal.html).
 
 When you run your tests, each checkpoint will generate a screenshot in your project folder.
 	 
-## Verify test execution on the 99tests Test Playground
- 
+## Step 4: Watch and Verify test execution on the 99tests test playground
+
 Once your local tests are running, verify the tests on our playground by changing your driver setup.
+
+Note that scripts which only run locally on your machine are not considered as a valid submission. 
+
+Please ensure you verify test runs in the playground before submitting your tests.
+
+### Accessing the 99tests test playground
  
-Open the `com.the99tests.photon.tests.WorkflowTest` class in this project, and find the first TODO  comment titled `Local/Test playground setup`
+Open the `com.the99tests.photon.tests.WorkflowTest` class in this project
 
-Comment out your local driver setup code.
+Customize the `setupPlaygroundWebDriver` method to setup and return a valid local web driver setup.
+Driver capabilities for various platforms can be found [here](https://hackmd.io/GwUwTOAMCMYLQEMQIMZwCwM3ARgdgFY84Z1ZJ1IBmAEwDMCg)
 
-Create your driver with
-
-- Hub URL: `PhotonSession.PLAYGROUND_HUB_URL`
-- Capabilities: As defined in [our documentation](https://hackmd.io/GwUwTOAMCMYLQEMQIMZwCwM3ARgdgFY84Z1ZJ1IBmAEwDMCg)
-
-Register the driver with
-
-    PhotonSession.setupTestPlaygroundSession(webDriver);
+in the `getEnvironment` method, change the return value to `PhotonTestEnvironment.PLAYGROUND`.
+ 
+### Watch your tests executing live
    
-When running your tests, your console output will display details to connect and watch the tests executing live.
+When you start executing your tests, your console output will display details to connect and watch the tests executing live.
 
 You will need a VNC client to view the test execution.
 
-Tests that execute successfully on the tester playground are guaranteed to work on our platform.
+Tests that execute successfully on the tester playground are guaranteed to work on our platform. Please ensure compatibility with the tester playground.
 
-## Submit your project
+## Step 5: Submit your project
 
 Execute the `package` maven goal on the project. This will create a zip file in the `target` folder.
 
 Submit the zip file via mail or upload the script if you have permissions.
 
-## Test scope and platforms
+## Other information
+
+### Test scope and platforms
 
 Target only one platform and one workflow in each project. If you have common functions between platforms or workflows, create a separate class file in the project which you can copy to other projects.
 
-## Adding other source files
+### Adding other source files
 
 You can add other source files required for the test automation in any package in this project.
 
-## Adding libraries
+### Adding libraries
 
 Add required libraries via Maven by editing the 'pom.xml' included in the project root folder.
 
 Local libraries/jar files are not supported. 
 
-## Adding test data
+### Adding test data
 
 Add data files required for the tests in the 'testdata/' folder, so that the automation framework can find them.
 
 Use the relative path 'testdata/<file-name>' to access the data files. 
 
-## Test run environment
+### Test run environment
 
 The tests you provide will be run on a headless linux server, which accesses a selenium grid to run tests on browsers and device emulators.
 

@@ -20,7 +20,7 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.2.1</version>
 				<configuration>
-					<mainClass>com.the99tests.photon.tests.TestRunner</mainClass>
+					<mainClass>com.the99tests.photon.PhotonSession$PhotonTestRunner</mainClass>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -51,28 +51,13 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-server</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>3.1.0</version>
 		</dependency>
 		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>6.8.7</version>
-		</dependency>
-		<dependency>
 			<groupId>com.the99tests.photon</groupId>
 			<artifactId>photon-session</artifactId>
-			<version>1.0.2</version>
-		</dependency>
-		<dependency>
-			<groupId>io.appium</groupId>
-			<artifactId>java-client</artifactId>
-			<version>2.2.0</version>
+			<version>1.0.4</version>
 		</dependency>
 	</dependencies>
 	<artifactId>WorkflowTest</artifactId>
