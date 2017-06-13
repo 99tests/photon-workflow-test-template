@@ -55,7 +55,7 @@ The test session functionality for generating checkpoints can be accessed via th
      
 ### Writing tests and generating checkpoints
 
-Write your code in the `Tests` block in `WorkflowTest`
+Write your code in the `Tests` block in `WorkflowTest`.
 
 Visit the workflow tab on the 99tests platform for reference.
 
@@ -100,7 +100,7 @@ Please ensure you verify test runs in the playground before submitting your test
  
 Open the `com.the99tests.photon.tests.WorkflowTest` class in this project
 
-Customize the `setupPlaygroundWebDriver` method to setup and return a valid local web driver setup.
+Customize the `setupPlaygroundWebDriver` method to setup and return a valid playground web driver setup.
 Driver capabilities for various platforms can be found [here](https://hackmd.io/GwUwTOAMCMYLQEMQIMZwCwM3ARgdgFY84Z1ZJ1IBmAEwDMCg)
 
 in the `getEnvironment` method, change the return value to `PhotonTestEnvironment.PLAYGROUND`.
