@@ -50,11 +50,6 @@
 	</build>
 	<dependencies>
 		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-		<dependency>
 			<groupId>com.the99tests.photon</groupId>
 			<artifactId>photon-session</artifactId>
 			<version>1.0.4</version>

@@ -25,6 +25,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
+// change RemoteWebDriver to any other driver if needed(Android/iOS)
 public class WorkflowTest extends PhotonSession.PhotonSuite<RemoteWebDriver> {
 	/*
 	 * Configuration block - please edit carefully
@@ -49,10 +50,12 @@ public class WorkflowTest extends PhotonSession.PhotonSuite<RemoteWebDriver> {
 		// TODO change this to PhotonTestEnvironment.PLAYGROUND 
 		// to test on the 99tests test playground
 		return PhotonTestEnvironment.LOCAL;
+		// return PhotonTestEnvironment.PLAYGROUND;
 	}
 	
 	/*
 	 * Tests block - please write your tests below
 	 */
+	
 }
 
