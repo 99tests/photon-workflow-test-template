@@ -24,9 +24,5 @@
 			<source>pom.xml</source>
 			<outputDirectory>/</outputDirectory>
 		</file>
-		<file>
-			<source>testng.xml</source>
-			<outputDirectory>/</outputDirectory>
-		</file>
 	</files>
 </assembly>
