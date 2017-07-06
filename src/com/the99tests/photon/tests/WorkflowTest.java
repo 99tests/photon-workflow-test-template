@@ -7,10 +7,11 @@
 package com.the99tests.photon.tests;
 
 import java.io.IOException;
-
+import java.util.HashMap;
 import java.util.concurrent.TimeoutException;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -44,6 +45,20 @@ public class WorkflowTest extends PhotonSession.PhotonSuite<RemoteWebDriver> {
 		// more info at https://hackmd.io/GwUwTOAMCMYLQEMQIMZwCwM3ARgdgFY84Z1ZJ1IBmAEwDMCg
 		return null;
 	} 
+	
+	@Override
+	protected HashMap<String, String> getRDASubmissionInfo() {
+		HashMap<String, String> rdaInfo=new HashMap<String, String>();
+		rdaInfo.put("email", "<your-email-id>");
+		rdaInfo.put("apiKey", "<api-key>");
+		rdaInfo.put("workflow", "<workflow-id>");
+		rdaInfo.put("enterpriseCycle", "<enterprisecycle-id>");
+		rdaInfo.put("automationDeviceId", "<automation-device-id>");
+		rdaInfo.put("logType", LogType.BROWSER);
+		// for Android, change above line to
+		// rdaInfo.put("logType", "logcat");
+		return rdaInfo;
+	}
 	
 	@Override
 	protected PhotonTestEnvironment getEnvironment() {
