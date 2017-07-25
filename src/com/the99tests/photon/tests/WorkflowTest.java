@@ -47,18 +47,38 @@ public class WorkflowTest extends PhotonSession.PhotonSuite<RemoteWebDriver> {
 	} 
 	
 	@Override
-	protected HashMap<String, String> getRDASubmissionInfo() {
-		HashMap<String, String> rdaInfo=new HashMap<String, String>();
-		rdaInfo.put("email", "<your-email-id>");
-		rdaInfo.put("apiKey", "<api-key>");
-		rdaInfo.put("workflow", "<workflow-id>");
-		rdaInfo.put("enterpriseCycle", "<enterprisecycle-id>");
-		rdaInfo.put("automationDeviceId", "<automation-device-id>");
-		rdaInfo.put("logType", LogType.BROWSER);
-		// for Android, change above line to
-		// rdaInfo.put("logType", "logcat");
-		return rdaInfo;
+	protected HashMap<String, Object> getAPICredentials() {
+		HashMap<String, Object> apiInfo=new HashMap<String, Object>();
+		apiInfo.put("email", "<your-email-id>");
+		apiInfo.put("apiKey", "<your-api-key>");
+		return apiInfo;
 	}
+	
+	@Override
+	protected HashMap<String, Object> getWorkflowDetails() {
+		HashMap<String, Object> workflowInfo=new HashMap<String, Object>();
+		workflowInfo.put("workflow", "<workflow-id>"); // 15
+		workflowInfo.put("enterpriseCycle", "<enterprise-cycle-id>");
+		return workflowInfo;
+	}
+	
+	@Override
+	protected HashMap<String, Object> getAutomationDeviceInfo() {
+		HashMap<String, Object> deviceInfo=new HashMap<String, Object>();
+		deviceInfo.put("automationDeviceId", "<automation-device-id>");
+		deviceInfo.put("logType", LogType.BROWSER);
+		return deviceInfo;
+	}
+	
+	@Override
+	protected HashMap<String, Object> getPhotonSessionSettings() {
+		HashMap<String, Object> settings=new HashMap<String, Object>();
+		settings.put("checkpointVerification", "on"); // set to off to disable checkpoint verification while developing tests, only works in LOCAL environments
+		settings.put("testEnvironment", PhotonTestEnvironment.LOCAL); 
+		// for test playground - settings.put("testEnvironment", PhotonTestEnvironment.PLAYGROUND); 
+		// for RDA submissions - settings.put("testEnvironment", PhotonTestEnvironment.RDA_SUBMISSION);
+		return settings;
+	}	
 	
 	@Override
 	protected PhotonTestEnvironment getEnvironment() {

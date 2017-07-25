@@ -52,7 +52,7 @@
 		<dependency>
 			<groupId>com.the99tests.photon</groupId>
 			<artifactId>photon-session</artifactId>
-			<version>1.0.5</version>
+			<version>1.0.8</version>
 		</dependency>
 	</dependencies>
 	<artifactId>WorkflowTest</artifactId>
