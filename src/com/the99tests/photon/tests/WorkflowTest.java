@@ -35,7 +35,7 @@ public class WorkflowTest extends PhotonSession.PhotonSuite<RemoteWebDriver> {
 	 */
 	@Override
 	protected RemoteWebDriver setupLocalWebDriver() throws Exception {
-		// TODO local driver setup
+		// TODO local driver setup, create a driver and return it
 		return null;
 	}
 
@@ -79,14 +79,6 @@ public class WorkflowTest extends PhotonSession.PhotonSuite<RemoteWebDriver> {
 		// for RDA submissions - settings.put("testEnvironment", PhotonTestEnvironment.RDA_SUBMISSION);
 		return settings;
 	}	
-	
-	@Override
-	protected PhotonTestEnvironment getEnvironment() {
-		// TODO change this to PhotonTestEnvironment.PLAYGROUND 
-		// to test on the 99tests test playground
-		return PhotonTestEnvironment.LOCAL;
-		// return PhotonTestEnvironment.PLAYGROUND;
-	}
 	
 	/*
 	 * Tests block - please write your tests below
