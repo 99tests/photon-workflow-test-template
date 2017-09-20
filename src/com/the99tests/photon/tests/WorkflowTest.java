@@ -43,6 +43,7 @@ public class WorkflowTest extends PhotonSession.PhotonSuite<RemoteWebDriver> {
 	protected RemoteWebDriver setupPlaygroundWebDriver() throws Exception {
 		// TODO test playground setup
 		// more info at https://hackmd.io/GwUwTOAMCMYLQEMQIMZwCwM3ARgdgFY84Z1ZJ1IBmAEwDMCg
+		// make sure you return the driver
 		return null;
 	} 
 	
